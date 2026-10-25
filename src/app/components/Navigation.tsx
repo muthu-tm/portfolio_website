@@ -30,8 +30,8 @@ export default function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 nav-shell">
       <div className="wrap flex items-center justify-between h-[68px]">
         <Link to="/" className="flex items-center gap-3">
-          <span className="t-serif text-lg t-strong">Muthu Thavamani</span>
           <span className="t-mono text-[11px] t-accent border border-[var(--line-strong)] px-[7px] py-[3px] rounded-md">MTM</span>
+          <span className="t-serif text-lg t-strong">Muthu Thavamani</span>
         </Link>
 
         {/* Desktop */}
