@@ -1,291 +1,278 @@
-import { ArrowRight, Award, Code, Rocket, GraduationCap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { Cpu, Database, GitBranch, ArrowRight, Download } from 'lucide-react';
+
+const stats = [
+  { num: '11', unit: '+', label: 'Years shipping production systems' },
+  { num: '4', unit: '×', label: 'AI-native products delivered' },
+  { num: '5', unit: '+', label: 'Early-stage startups shaped' },
+  { num: '400', unit: 'K+', label: 'Decentralized IDs issued' },
+];
+
+const focus = [
+  {
+    icon: Cpu,
+    title: 'Generative AI & Agents',
+    body: 'Foundation models (OpenAI, Claude, Hugging Face, LLaMA) applied to governed asset agents, MCP-connected RAG copilots, and LangGraph multi-agent orchestration — with fine-tuning, guardrails, evaluation, and human-in-the-loop controls.',
+  },
+  {
+    icon: Database,
+    title: 'Data Engineering',
+    body: 'Serverless ETL, medallion architectures, and delta pipelines over millions of records — with governance and validation built in.',
+  },
+  {
+    icon: GitBranch,
+    title: 'Architecture & Web3',
+    body: 'Protocol engineering, decentralized identity, and scalable backends in Go and Python — from consensus layers to serverless platforms.',
+  },
+];
+
+const experience = [
+  {
+    when: 'Sep 2025 — Present',
+    role: 'Lead AI Engineer',
+    suffix: '· Contract',
+    company: 'Forward-Deployed AI Delivery',
+    aiNative: true,
+    desc: 'Embedded with clients to ship Generative-AI products from discovery to production: governed multi-agent asset agents, a RAG Copilot over secured MCP, a predictive engine for healthcare HVAC, and an LLM document parser with embeddings and vector search.',
+    tags: ['Generative AI', 'RAG / MCP', 'Multi-Agent', 'Guardrails', 'Databricks', 'AWS'],
+  },
+  {
+    when: 'Oct 2024 — Aug 2025',
+    role: 'Lead Data Engineer',
+    company: 'Greenmen Consulting',
+    aiNative: true,
+    desc: 'Built the AIDLC BRD engine — a LangChain / LangGraph multi-agent system — from ideation to production, led enterprise migration to Salesforce with full governance, and shipped serverless delta loads plus a Databricks medallion architecture.',
+    tags: ['AIDLC', 'LangGraph', 'Multi-Agent', 'Databricks', 'Teradata', 'AWS'],
+  },
+  {
+    when: 'Jun 2022 — Sep 2024',
+    role: 'Product Development Head',
+    company: 'Unibase Labs',
+    aiNative: false,
+    desc: 'Led an esports GameFi ecosystem from ideation to production — 400K+ decentralized IDs via Privado ID, L1 development on Avalanche Subnet and Polygon CDK, and a re-architected serverless Tezos launchpad.',
+    tags: ['Golang', 'Polygon CDK', 'Privado ID', 'Cosmos SDK'],
+  },
+];
+
+const projects = [
+  { tag: 'AI-Native', name: 'Governed Asset Agents', desc: 'Enterprise asset-management agents that forecast failures, analyse operations, and act within policy guardrails — multi-agent, auditable, and governed by Responsible AI and human-in-the-loop controls.', tags: ['Multi-Agent', 'Guardrails', 'Responsible AI', 'Anomaly Detection', 'Databricks'] },
+  { tag: 'AI-Native', name: 'Universal AI Copilot', desc: 'A RAG assistant that plugs into any system through a secured MCP connection — using tool/function calling and semantic search to expose one conversational interface over scattered enterprise tools.', tags: ['RAG', 'MCP', 'Tool-Calling', 'Embeddings', 'FastAPI'] },
+  { tag: 'AI-Native', name: 'AIDLC · BRD Multi-Agent Engine', desc: 'An AI Development Life Cycle (AIDLC) engine orchestrating LangChain / LangGraph multi-agent workflows that take business requirements from ideation to production, with LLM evaluation and governed medallion data.', tags: ['AIDLC', 'LangGraph', 'LangChain', 'Multi-Agent', 'LLM Evaluation'] },
+  { tag: 'AI-Native', name: 'HVAC Predictive Engine', desc: 'Predictive analysis for healthcare HVAC systems — time-series forecasting and anomaly detection that turn real-time telemetry into actions that cut downtime and improve efficiency, with drift monitoring.', tags: ['Forecasting', 'Anomaly Detection', 'MLflow', 'IoT Data', 'AWS'] },
+];
+
+const skills = [
+  { cat: 'Generative AI & Agentic', vals: 'Generative AI · Foundation Models (OpenAI · Claude · Hugging Face · LLaMA) · LLMs · RAG · Fine-Tuning · Vector DBs · AIDLC · Multi-Agent · LangGraph · LangChain · MCP · Tool-Calling · Prompt Engineering · Embeddings · Semantic Search · Guardrails · Responsible AI · Human-in-the-Loop · LLM Evaluation' },
+  { cat: 'Forward-Deployed Delivery', vals: 'Customer-embedded delivery · Discovery · Scoping · System Design · Production Rollout · Stakeholder Collaboration · End-to-End Ownership' },
+  { cat: 'MLOps & AI Engineering', vals: 'MLflow · Model Registry · Feature Store · FastAPI · Docker · CI/CD · Drift Detection · Model Monitoring · Computer Vision' },
+  { cat: 'Data Engineering', vals: 'Databricks · Airflow · PySpark · AWS Glue · Delta Lake · Serverless ETL' },
+  { cat: 'Languages', vals: 'Golang · Python · TypeScript · Solidity · Java · Dart' },
+  { cat: 'Web3 & Blockchain', vals: 'EVM · Cosmos SDK · Polygon CDK · Privado ID · Hyperledger' },
+  { cat: 'Backend & APIs', vals: 'FastAPI · ExpressJS · Hasura (GraphQL) · gRPC' },
+  { cat: 'Cloud & Infra', vals: 'AWS · GCP · Azure · Docker · Serverless' },
+];
+
+const fade = {
+  initial: { opacity: 0, y: 18 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { duration: 0.5 },
+};
 
 export default function Home() {
   return (
-    <div className="pt-16 md:pt-20">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/20 to-gray-900/40" />
-        <div 
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `url(https://images.unsplash.com/photo-1660810731526-0720827cbd38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMGVuZ2luZWVyJTIwd29ya3NwYWNlfGVufDF8fHx8MTc2NjAzNzA4M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral)`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-        
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <motion.div
+    <div className="pt-[68px]">
+      {/* HERO */}
+      <header className="wrap pt-20 md:pt-24 pb-16 md:pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.55fr_1fr] gap-10 lg:gap-16 items-start">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <div className="flex items-center gap-2 t-mono text-[13px] t-soft mb-6">
+              <span className="w-2 h-2 rounded-full bg-[var(--accent-2)] shadow-[0_0_0_4px_color-mix(in_srgb,var(--accent-2)_20%,transparent)]" />
+              Available for forward-deployed (AI · Data · Web3) Engagements
+            </div>
+            <p className="eyebrow mb-4">AI-Native Engineer · Technical Architect</p>
+            <h1 className="text-[clamp(40px,6vw,66px)] mb-5">
+              Shipping <span className="grad-text">Generative AI</span> from discovery to production.
+            </h1>
+            <p className="text-lg md:text-xl t-soft max-w-[40ch] mb-8">
+              11 years turning 0→1 ideas into production systems. I embed with teams as a
+              Forward Deployed Engineer — building governed multi-agent AI, RAG copilots over MCP,
+              and predictive engines, and owning them end to end.
+            </p>
+            <div className="flex flex-wrap gap-2 mb-9">
+              {['Generative AI', 'Agentic AI', 'RAG & LLMs', 'Forward Deployed', 'Data Engineering'].map((r) => (
+                <span key={r} className="pill">{r}</span>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/experience" className="btn btn-primary">View Experience <ArrowRight className="w-4 h-4" /></Link>
+              <Link to="/works" className="btn btn-ghost">Selected Works</Link>
+            </div>
+          </motion.div>
+
+          <motion.aside
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center"
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="surface rounded-2xl p-7 w-full"
           >
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2, type: 'spring' }}
-              className="inline-block px-3 md:px-4 py-2 bg-emerald-600/20 border border-emerald-400/30 rounded-full mb-4 md:mb-6"
-            >
-              <span className="text-sm md:text-base text-emerald-400">10+ Years of Excellence</span>
-            </motion.div>
-            
-            <h1 className="text-4xl md:text-6xl lg:text-7xl mb-4 md:mb-6 text-white">
-              Deep Tech <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-yellow-400">Expert</span>
-            </h1>
-            
-            <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed">
-              Blockchain Architect • Data Engineer • Full-Stack Developer
-            </p>
-            
-            <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-8 md:mb-12 px-4">
-              A decade of building cutting-edge solutions across Web3, distributed systems, 
-              data pipelines, and enterprise applications. From protocol engineering to 
-              serverless architectures, I transform complex technical challenges into scalable solutions.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
-              <Link 
-                to="/experience"
-                className="px-6 md:px-8 py-3 md:py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg flex items-center justify-center gap-2 transition-all transform hover:scale-105"
-              >
-                View Experience
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              
-              <Link 
-                to="/works"
-                className="px-6 md:px-8 py-3 md:py-4 border-2 border-emerald-600 text-emerald-400 hover:bg-emerald-600/10 rounded-lg transition-all"
-              >
-                See Projects
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Highlights Section */}
-      <section className="py-12 md:py-20 bg-gray-900/50">
-        <div className="container mx-auto px-4 md:px-6">
-          {/* Lead Engineer Introduction */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto mb-12 md:mb-16 text-center"
-          >
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed px-4">
-              A <span className="text-emerald-400">Lead Polyglot Engineer</span> and{' '}
-              <span className="text-emerald-400">Technical Architect</span> with a decade of experience 
-              in building high-stakes systems from the ground up. My career is defined by a{' '}
-              <span className="text-yellow-400">"0 to 1" mindset</span>, having navigated multiple 
-              Web2 and Web3 startups through their most critical growth phases.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
-          >
-            <div className="p-6 md:p-8 bg-gradient-to-br from-emerald-900/30 to-gray-800/30 rounded-xl border border-emerald-700/30">
-              <Code className="w-10 h-10 md:w-12 md:h-12 text-yellow-400 mb-4" />
-              <h3 className="text-xl md:text-2xl mb-3 text-white">Technical Breadth</h3>
-              <p className="text-gray-400">
-                Mastery across blockchain protocols, distributed systems, data engineering, 
-                and full-stack development with expertise in 10+ programming languages.
-              </p>
-            </div>
-            
-            <div className="p-6 md:p-8 bg-gradient-to-br from-emerald-900/30 to-gray-800/30 rounded-xl border border-emerald-700/30">
-              <Award className="w-10 h-10 md:w-12 md:h-12 text-yellow-400 mb-4" />
-              <h3 className="text-xl md:text-2xl mb-3 text-white">Impact at Scale</h3>
-              <p className="text-gray-400">
-                Issued 400K+ DIDs, processed millions of API requests daily, 
-                and architected systems handling complex multi-chain operations.
-              </p>
-            </div>
-            
-            <div className="p-6 md:p-8 bg-gradient-to-br from-emerald-900/30 to-gray-800/30 rounded-xl border border-emerald-700/30">
-              <Rocket className="w-10 h-10 md:w-12 md:h-12 text-yellow-400 mb-4" />
-              <h3 className="text-xl md:text-2xl mb-3 text-white">Entrepreneur Spirit</h3>
-              <p className="text-gray-400">
-                Founded multiple startups including Crypit.app and 3suite, 
-                bringing innovative Web3 solutions to market.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Technology Skills Table */}
-      <section className="py-12 md:py-20 bg-gray-900/30">
-        <div className="container mx-auto px-4 md:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-8 md:mb-12 text-center"
-          >
-            <h2 className="text-3xl md:text-4xl mb-4 text-white px-4">
-              Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-yellow-400">Arsenal</span>
-            </h2>
-            <p className="text-gray-400 text-base md:text-lg px-4">
-              A comprehensive overview of technologies and their real-world applications
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}>
-            <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-emerald-700/30 overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="bg-emerald-900/30 border-b border-emerald-700/30">
-                      <th className="px-3 md:px-6 py-3 md:py-4 text-left text-sm md:text-base text-emerald-400">Category</th>
-                      <th className="px-3 md:px-6 py-3 md:py-4 text-left text-sm md:text-base text-emerald-400">Key Technologies</th>
-                      <th className="px-3 md:px-6 py-3 md:py-4 text-left text-sm md:text-base text-emerald-400 hidden lg:table-cell">Applied Experience & Projects</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-700/30">
-                    <tr className="hover:bg-emerald-900/10 transition-colors">
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-yellow-400">Languages</td>
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-300">
-                        Golang, Python, Solidity, JS/TS (NodeJS), Java, Dart
-                      </td>
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-400 hidden lg:table-cell">
-                        Core backend services for <span className="text-emerald-400">Securex AI</span>, 
-                        smart contracts for <span className="text-emerald-400">Coinfantasy</span>, 
-                        and IoT algorithms for HVAC platforms.
-                      </td>
-                    </tr>
-                    
-                    <tr className="hover:bg-emerald-900/10 transition-colors">
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-yellow-400">Web3 & Blockchain</td>
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-300">
-                        EVM (Solidity), Cosmos SDK, Hyperledger Fabric, Tezos (SmartPy), 
-                        Polygon CDK, Avalanche Subnets, Privado ID (DID/VC)
-                      </td>
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-400 hidden lg:table-cell">
-                        Developed <span className="text-emerald-400">400K+ DIDs</span> for Turf Network, 
-                        architected multi-chain wallets, and built the 3suite NFT marketplace and utility tools.
-                      </td>
-                    </tr>
-                    
-                    <tr className="hover:bg-emerald-900/10 transition-colors">
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-yellow-400">Data Engineering</td>
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-300">
-                        Databricks (Certified), Airflow, AWS Glue, PySpark, Teradata, Serverless ETL
-                      </td>
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-400 hidden lg:table-cell">
-                        Led enterprise migrations to <span className="text-emerald-400">Salesforce</span>, 
-                        built automated delta-load systems for <span className="text-emerald-400">millions of records</span>, 
-                        and managed metadata extraction for Elsevier.
-                      </td>
-                    </tr>
-                    
-                    <tr className="hover:bg-emerald-900/10 transition-colors">
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-yellow-400">Mobile & Frontend</td>
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-300">
-                        Flutter, React Native, ReactJS
-                      </td>
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-400 hidden lg:table-cell">
-                        Developed the Unique Foods app (<span className="text-emerald-400">5K+ users</span>), 
-                        the Crypit.app super-app interface, and mobile IoT management dashboards.
-                      </td>
-                    </tr>
-                    
-                    <tr className="hover:bg-emerald-900/10 transition-colors">
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-yellow-400">Backend & APIs</td>
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-300">
-                        FastAPI, ExpressJS, Hasura (GraphQL), gRPC, FIX Protocol
-                      </td>
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-400 hidden lg:table-cell">
-                        Engineered high-concurrency game schedulers, modern serverless API platforms 
-                        handling <span className="text-emerald-400">millions of daily requests</span>, 
-                        and financial clearing systems.
-                      </td>
-                    </tr>
-                    
-                    <tr className="hover:bg-emerald-900/10 transition-colors">
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-yellow-400">Databases</td>
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-300">
-                        PostgreSQL, MySQL, MongoDB, DynamoDB, Cloud Firestore
-                      </td>
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-400 hidden lg:table-cell">
-                        Implemented real-time synchronization via DynamoDB Streams and managed 
-                        microservice data layers using Firestore.
-                      </td>
-                    </tr>
-                    
-                    <tr className="hover:bg-emerald-900/10 transition-colors">
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-yellow-400">Cloud & Infra</td>
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-300">
-                        AWS, GCP, Azure, Docker, Serverless, Nginx-RTMP
-                      </td>
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-400 hidden lg:table-cell">
-                        Designed multi-cloud infrastructures spanning AWS/GCP and developed 
-                        custom serverless live-streaming systems.
-                      </td>
-                    </tr>
-                    
-                    <tr className="hover:bg-emerald-900/10 transition-colors">
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-yellow-400">AI & Specialized</td>
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-300">
-                        Tensorflow Posenet, OCR Engines, NVD Vulnerability Source
-                      </td>
-                      <td className="px-3 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-400 hidden lg:table-cell">
-                        Built fitness-tracking AI MVPs, intelligent document processors, 
-                        and automated security vulnerability remediation services.
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+            <h2 className="t-mono text-[11px] tracking-[0.14em] uppercase t-muted mb-5">Profile</h2>
+            {[
+              ['Role', 'Lead AI Engineer · Architect'],
+              ['Model', 'Forward Deployed'],
+              ['Experience', '11 years'],
+              ['Focus', 'Generative AI · Agents · Data'],
+              ['Certified', 'Databricks Pro'],
+              ['Core', 'Go · Python · JS/TS · Solidity'],
+              ['Location', 'India · Remote'],
+            ].map(([k, v], i, arr) => (
+              <div key={k} className={`flex justify-between items-center py-3 text-sm ${i < arr.length - 1 ? 'divider-dashed' : ''}`}>
+                <span className="t-muted">{k}</span>
+                <span className="t-strong font-medium">{v}</span>
               </div>
+            ))}
+          </motion.aside>
+        </div>
+      </header>
+
+      {/* STATS */}
+      <section className="wrap pb-16 md:pb-20" aria-label="Key metrics">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--line)] border border-[var(--line)] rounded-2xl overflow-hidden">
+          {stats.map((s) => (
+            <div key={s.label} className="bg-[var(--bg-elev)] p-6 md:p-7">
+              <div className="t-serif text-[34px] leading-none mb-2 t-strong">
+                {s.num}<span className="t-accent">{s.unit}</span>
+              </div>
+              <div className="text-[13px] t-muted">{s.label}</div>
             </div>
-          </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* Certification Section */}
-      <section className="py-20 bg-gray-900/50">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mx-auto"
-          >
-            <div className="bg-gradient-to-br from-emerald-900/30 to-gray-800/30 rounded-xl p-8 border border-emerald-700/30 text-center">
-              <GraduationCap className="w-16 h-16 text-yellow-400 mx-auto mb-4" />
-              <h3 className="text-2xl text-white mb-2">Certification</h3>
-              <p className="text-emerald-400 text-xl">Databricks Certified Professional</p>
-            </div>
-          </motion.div>
+      {/* FOCUS */}
+      <section className="wrap py-16 md:py-20 divider-line" aria-labelledby="focus-h">
+        <motion.div {...fade} className="mb-10">
+          <div className="mb-2"><span className="sec-num">01</span> &nbsp; <span className="eyebrow">What I do</span></div>
+          <h2 id="focus-h" className="text-[clamp(28px,3.5vw,38px)]">Focus areas</h2>
+        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[18px]">
+          {focus.map((f) => {
+            const Icon = f.icon;
+            return (
+              <motion.article key={f.title} {...fade} className="card-soft rounded-2xl p-7">
+                <div className="w-[42px] h-[42px] rounded-[10px] bg-[var(--accent-soft)] grid place-items-center t-accent mb-[18px]">
+                  <Icon className="w-[22px] h-[22px]" strokeWidth={1.8} />
+                </div>
+                <h3 className="text-xl mb-[10px] t-strong">{f.title}</h3>
+                <p className="text-sm t-soft">{f.body}</p>
+              </motion.article>
+            );
+          })}
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 bg-gray-900 border-t border-emerald-800/30">
-        <div className="container mx-auto px-6">
-          <div className="text-center">
-            <p className="text-2xl text-gray-300 italic mb-4">
-              "The best way to predict the future is to create it." – Peter Drucker
-            </p>
-            <p className="text-gray-500">© 2024 Deep Tech Engineer. All rights reserved.</p>
+      {/* EXPERIENCE PREVIEW */}
+      <section className="wrap py-16 md:py-20 divider-line" aria-labelledby="xp-h">
+        <motion.div {...fade} className="flex items-end justify-between gap-5 flex-wrap mb-10">
+          <div>
+            <div className="mb-2"><span className="sec-num">02</span> &nbsp; <span className="eyebrow">Recent</span></div>
+            <h2 id="xp-h" className="text-[clamp(28px,3.5vw,38px)]">Selected experience</h2>
           </div>
+          <Link to="/experience" className="t-mono text-[13px] t-accent">Full history →</Link>
+        </motion.div>
+        <div>
+          {experience.map((x, i) => (
+            <motion.article
+              key={x.role}
+              {...fade}
+              className={`grid grid-cols-1 md:grid-cols-[180px_1fr] gap-3 md:gap-7 py-7 ${i > 0 ? 'divider-line' : ''}`}
+            >
+              <div className="t-mono text-[13px] t-muted pt-1">{x.when}</div>
+              <div>
+                <h3 className="text-xl t-serif mb-1 t-strong">
+                  {x.role}{x.suffix && <span className="t-muted text-sm font-[family-name:var(--sans)]"> {x.suffix}</span>}
+                </h3>
+                <div className="text-sm t-accent mb-3 flex items-center gap-3 flex-wrap">
+                  {x.company}
+                  {x.aiNative && <span className="badge">AI-Native</span>}
+                </div>
+                <p className="text-sm t-soft mb-3.5">{x.desc}</p>
+                <div className="flex flex-wrap gap-[7px]">
+                  {x.tags.map((t) => <span key={t} className="tag">{t}</span>)}
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </section>
+
+      {/* PROJECTS */}
+      <section className="wrap py-16 md:py-20 divider-line" aria-labelledby="pr-h">
+        <motion.div {...fade} className="flex items-end justify-between gap-5 flex-wrap mb-10">
+          <div>
+            <div className="mb-2"><span className="sec-num">03</span> &nbsp; <span className="eyebrow">Flagship</span></div>
+            <h2 id="pr-h" className="text-[clamp(28px,3.5vw,38px)]">Selected works</h2>
+          </div>
+          <Link to="/works" className="t-mono text-[13px] t-accent">All projects →</Link>
+        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[18px]">
+          {projects.map((p) => (
+            <motion.article key={p.name} {...fade} className="card-soft rounded-2xl p-7">
+              <div className="t-mono text-[11px] t-accent-2 tracking-[0.08em] uppercase mb-1">{p.tag}</div>
+              <h3 className="text-xl mb-2 t-strong">{p.name}</h3>
+              <p className="text-sm t-soft mb-4">{p.desc}</p>
+              <div className="flex flex-wrap gap-[7px]">
+                {p.tags.map((t) => <span key={t} className="tag">{t}</span>)}
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </section>
+
+      {/* SKILLS */}
+      <section className="wrap py-16 md:py-20 divider-line" aria-labelledby="sk-h">
+        <motion.div {...fade} className="mb-10">
+          <div className="mb-2"><span className="sec-num">04</span> &nbsp; <span className="eyebrow">Toolbox</span></div>
+          <h2 id="sk-h" className="text-[clamp(28px,3.5vw,38px)]">Technical arsenal</h2>
+        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--line)] border border-[var(--line)] rounded-2xl overflow-hidden">
+          {skills.map((s) => (
+            <div key={s.cat} className="bg-[var(--bg-elev)] px-6 py-5 grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-[18px] sm:items-center">
+              <div className="text-[13px] t-accent font-semibold">{s.cat}</div>
+              <div className="text-[13px] t-soft">{s.vals}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="wrap py-16 md:py-20 divider-line">
+        <motion.div {...fade} className="surface rounded-[18px] p-10 md:p-14 text-center">
+          <p className="eyebrow mb-3.5">Let's build</p>
+          <h2 className="text-[clamp(28px,4vw,42px)] mb-4">Have a Generative-AI problem worth solving?</h2>
+          <p className="t-soft max-w-[46ch] mx-auto mb-7">
+            I embed with teams as a Forward Deployed Engineer — taking agentic systems and data
+            platforms from discovery to production. Let's talk about where you're headed.
+          </p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <Link to="/contact" className="btn btn-primary">Get in touch <ArrowRight className="w-4 h-4" /></Link>
+            <a
+              href="/Muthaiya-Thavamani-Resume.pdf"
+              download
+              className="btn btn-ghost"
+            >
+              <Download className="w-4 h-4" /> Download Résumé
+            </a>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="wrap py-10 md:py-12 divider-line">
+        <div className="flex justify-between items-center flex-wrap gap-4 text-[13px] t-muted">
+          <span>© 2026 Muthu Thavamani</span>
+          <span className="t-mono">AI-Native Engineer · Technical Architect</span>
         </div>
       </footer>
     </div>

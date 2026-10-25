@@ -1,81 +1,114 @@
 @custom-variant dark (&:is(.dark *));
 
+/* =========================================================================
+   Executive / AI-Native design system
+   Light is the default; dark is a deep slate (not pure black).
+   A single indigo -> teal accent is used sparingly for an exec feel.
+   ========================================================================= */
+
 :root {
   --font-size: 16px;
-  --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
-  --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: #030213;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.0058 264.53);
-  --secondary-foreground: #030213;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
+
+  /* Brand palette — LIGHT (default) */
+  --bg: #faf9f6;
+  --bg-elev: #ffffff;
+  --surface: #ffffff;
+  --ink: #1a1a2e;
+  --ink-soft: #4a4a63;
+  --ink-muted: #76768c;
+  --line: #e7e4dc;
+  --line-strong: #d9d5ca;
+  --accent: #4f46e5;
+  --accent-2: #0d9488;
+  --accent-soft: #eef0ff;
+
+  --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  --shadow: 0 1px 2px rgba(26,26,46,.04), 0 12px 32px -12px rgba(26,26,46,.12);
+
+  /* shadcn/ui tokens (kept so library components stay consistent) */
+  --background: var(--bg);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--bg);
+  --secondary: var(--accent-soft);
+  --secondary-foreground: var(--ink);
+  --muted: var(--accent-soft);
+  --muted-foreground: var(--ink-muted);
+  --accent-ui: var(--accent-soft);
+  --accent-foreground: var(--accent);
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
+  --border: var(--line);
   --input: transparent;
-  --input-background: #f3f3f5;
+  --input-background: var(--bg-elev);
   --switch-background: #cbced4;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
+  --ring: var(--accent);
+  --chart-1: var(--accent);
+  --chart-2: var(--accent-2);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #030213;
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --radius: 0.75rem;
+  --sidebar: var(--bg-elev);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--ink);
+  --sidebar-primary-foreground: var(--bg);
+  --sidebar-accent: var(--accent-soft);
+  --sidebar-accent-foreground: var(--accent);
+  --sidebar-border: var(--line);
+  --sidebar-ring: var(--accent);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  /* Brand palette — DARK (deep slate) */
+  --bg: #0e1016;
+  --bg-elev: #151823;
+  --surface: #161a26;
+  --ink: #f3f2ef;
+  --ink-soft: #c2c4cf;
+  --ink-muted: #8b8e9e;
+  --line: #262a37;
+  --line-strong: #333848;
+  --accent: #a5b4fc;
+  --accent-2: #5eead4;
+  --accent-soft: #1b1f30;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 18px 40px -18px rgba(0,0,0,.55);
+
+  --background: var(--bg);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--bg);
+  --secondary: var(--accent-soft);
+  --secondary-foreground: var(--ink);
+  --muted: var(--accent-soft);
+  --muted-foreground: var(--ink-muted);
+  --accent-ui: var(--accent-soft);
+  --accent-foreground: var(--accent);
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--accent);
+  --sidebar: var(--bg-elev);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--accent);
+  --sidebar-primary-foreground: var(--bg);
+  --sidebar-accent: var(--accent-soft);
+  --sidebar-accent-foreground: var(--accent);
+  --sidebar-border: var(--line);
+  --sidebar-ring: var(--accent);
 }
 
 @theme inline {
@@ -91,7 +124,7 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
+  --color-accent: var(--accent-ui);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
@@ -117,65 +150,122 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: var(--sans);
+  --font-serif: var(--serif);
+  --font-mono: var(--mono);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-
-  body {
-    @apply bg-background text-foreground;
-  }
-
-  /**
-  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
-  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
-  */
-
   html {
     font-size: var(--font-size);
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color .3s ease, color .3s ease;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--serif);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.14;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Reusable component utilities for the portfolio
+   ------------------------------------------------------------------------- */
+@layer components {
+  .page-shell { background-color: var(--bg); min-height: 100vh; }
+
+  .wrap { max-width: 1120px; margin-left: auto; margin-right: auto; padding-left: 28px; padding-right: 28px; }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); font-weight: 500;
+  }
+  .sec-num { font-family: var(--mono); font-size: 13px; color: var(--ink-muted); }
+
+  /* Text helpers */
+  .t-serif { font-family: var(--serif); }
+  .t-mono { font-family: var(--mono); }
+  .t-strong { color: var(--ink); }
+  .t-soft { color: var(--ink-soft); }
+  .t-muted { color: var(--ink-muted); }
+  .t-accent { color: var(--accent); }
+  .t-accent-2 { color: var(--accent-2); }
+  .grad-text {
+    background-image: linear-gradient(100deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
   }
 
-  h1 {
-    font-size: var(--text-2xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+  /* Navigation */
+  .nav-shell {
+    background-color: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-link { padding: 8px 14px; border-radius: 8px; font-size: 14px; color: var(--ink-soft); transition: all .2s; }
+  .nav-link:hover { color: var(--ink); background-color: var(--accent-soft); }
+  .nav-link.active { color: var(--accent); }
+
+  .theme-toggle {
+    width: 38px; height: 38px; border-radius: 9px; border: 1px solid var(--line-strong);
+    background-color: var(--surface); display: grid; place-items: center; color: var(--ink-soft);
+    transition: all .2s; cursor: pointer;
+  }
+  .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* Surfaces */
+  .surface {
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+  .card-soft {
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+    transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+  }
+  .card-soft:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow); }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; gap: 9px; padding: 13px 22px; border-radius: 10px; font-size: 14px; font-weight: 500; transition: all .2s; }
+  .btn-primary { background-color: var(--ink); color: var(--bg); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .btn-ghost { border: 1px solid var(--line-strong); color: var(--ink); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Chips / tags */
+  .pill {
+    font-family: var(--mono); font-size: 12px; padding: 6px 12px;
+    border: 1px solid var(--line-strong); border-radius: 999px; color: var(--ink-soft);
+  }
+  .tag {
+    font-family: var(--mono); font-size: 11px; padding: 4px 10px; border-radius: 6px;
+    background-color: var(--accent-soft); color: var(--accent);
+  }
+  .badge {
+    font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--accent-2); border: 1px solid var(--line-strong); border-radius: 5px; padding: 2px 7px;
   }
 
-  h2 {
-    font-size: var(--text-xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-  }
+  /* Dashed divider rows (profile card, etc.) */
+  .divider-dashed { border-bottom: 1px dashed var(--line); }
+  .divider-line { border-top: 1px solid var(--line); }
 
-  h3 {
-    font-size: var(--text-lg);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+  .input-field {
+    width: 100%; background-color: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: 10px; padding: 12px 14px; color: var(--ink); font-size: 14px;
+    transition: border-color .2s ease;
   }
-
-  h4 {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-  }
-
-  label {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-  }
-
-  button {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-  }
-
-  input {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-normal);
-    line-height: 1.5;
-  }
+  .input-field:focus { outline: none; border-color: var(--accent); }
+  .input-field::placeholder { color: var(--ink-muted); }
 }
