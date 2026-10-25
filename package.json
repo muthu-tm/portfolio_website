@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
+    "build:seo": "vite build && node scripts/prerender.mjs",
+    "prerender": "node scripts/prerender.mjs",
     "dev": "vite"
   },
   "dependencies": {
