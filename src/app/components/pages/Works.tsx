@@ -7,6 +7,7 @@ interface Project {
   category: string;
   link?: string;
   aiNative?: boolean;
+  hidden?: boolean;
   pillars: { title: string; description: string }[];
   skills: string;
 }
@@ -53,6 +54,7 @@ const projects: Project[] = [
     tagline: 'Healthcare Facilities',
     category: 'AI-Native',
     aiNative: true,
+    hidden: true,
     pillars: [
       { title: 'Forecasting & Anomaly Detection', description: 'A predictive engine for healthcare HVAC systems using time-series forecasting and anomaly detection to flag performance and maintenance needs from real-time sensor data.' },
       { title: 'Operational Efficiency', description: 'Turns raw IoT telemetry into actionable predictions that improve energy efficiency and reduce unplanned downtime in critical facilities.' },
@@ -144,7 +146,7 @@ export default function Works() {
 
       <main className="wrap pb-16 md:pb-24">
         {categories.map((category) => {
-          const items = projects.filter((p) => p.category === category);
+          const items = projects.filter((p) => p.category === category && !p.hidden);
           return (
             <section key={category} className="pt-10 md:pt-14" aria-label={category}>
               <motion.h2 {...fade} className="text-xl md:text-2xl t-accent mb-8 flex items-center gap-3">

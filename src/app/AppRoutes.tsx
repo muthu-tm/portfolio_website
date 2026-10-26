@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './theme/ThemeProvider';
+import ScrollToTop from './components/ScrollToTop';
 import Navigation from './components/Navigation';
 import Home from './components/pages/Home';
 import Experience from './components/pages/Experience';
@@ -14,6 +15,7 @@ import Contact from './components/pages/Contact';
 export default function AppRoutes() {
   return (
     <ThemeProvider>
+      <ScrollToTop />
       <div className="page-shell">
         <Navigation />
         <Routes>

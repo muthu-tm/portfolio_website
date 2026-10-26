@@ -4,9 +4,9 @@ import { Cpu, Database, GitBranch, ArrowRight, Download } from 'lucide-react';
 
 const stats = [
   { num: '11', unit: '+', label: 'Years shipping production systems' },
-  { num: '4', unit: '×', label: 'AI-native products delivered' },
+  { num: '5', unit: '+', label: 'AI-native products delivered' },
   { num: '5', unit: '+', label: 'Early-stage startups shaped' },
-  { num: '400', unit: 'K+', label: 'Decentralized IDs issued' },
+  { num: 'Databricks', unit: '', label: 'Certified Professional' },
 ];
 
 const focus = [
@@ -59,7 +59,7 @@ const projects = [
   { tag: 'AI-Native', name: 'Governed Asset Agents', desc: 'Enterprise asset-management agents that forecast failures, analyse operations, and act within policy guardrails — multi-agent, auditable, and governed by Responsible AI and human-in-the-loop controls.', tags: ['Multi-Agent', 'Guardrails', 'Responsible AI', 'Anomaly Detection', 'Databricks'] },
   { tag: 'AI-Native', name: 'Universal AI Copilot', desc: 'A RAG assistant that plugs into any system through a secured MCP connection — using tool/function calling and semantic search to expose one conversational interface over scattered enterprise tools.', tags: ['RAG', 'MCP', 'Tool-Calling', 'Embeddings', 'FastAPI'] },
   { tag: 'AI-Native', name: 'AIDLC · BRD Multi-Agent Engine', desc: 'An AI Development Life Cycle (AIDLC) engine orchestrating LangChain / LangGraph multi-agent workflows that take business requirements from ideation to production, with LLM evaluation and governed medallion data.', tags: ['AIDLC', 'LangGraph', 'LangChain', 'Multi-Agent', 'LLM Evaluation'] },
-  { tag: 'AI-Native', name: 'HVAC Predictive Engine', desc: 'Predictive analysis for healthcare HVAC systems — time-series forecasting and anomaly detection that turn real-time telemetry into actions that cut downtime and improve efficiency, with drift monitoring.', tags: ['Forecasting', 'Anomaly Detection', 'MLflow', 'IoT Data', 'AWS'] },
+  { tag: 'AI-Native', name: 'HVAC Predictive Engine', hidden: true, desc: 'Predictive analysis for healthcare HVAC systems — time-series forecasting and anomaly detection that turn real-time telemetry into actions that cut downtime and improve efficiency, with drift monitoring.', tags: ['Forecasting', 'Anomaly Detection', 'MLflow', 'IoT Data', 'AWS'] },
   { tag: 'AI-Native', name: 'IT Support Copilot', desc: 'A policy-driven, governed AI copilot for multi-tenant organisations — a governed agentic workflow with three-tier RAG (hybrid pgvector + BM25, RRF fusion) on Azure, grounded by content filtering and groundedness evaluation, with structured auto-escalation to IT.', tags: ['RAG', 'pgvector', 'Azure AI Foundry', 'Copilot Studio', 'Guardrails'] },
 ];
 
@@ -140,14 +140,17 @@ export default function Home() {
       {/* STATS */}
       <section className="wrap pb-16 md:pb-20" aria-label="Key metrics">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--line)] border border-[var(--line)] rounded-2xl overflow-hidden">
-          {stats.map((s) => (
-            <div key={s.label} className="bg-[var(--bg-elev)] p-6 md:p-7">
-              <div className="t-serif text-[34px] leading-none mb-2 t-strong">
-                {s.num}<span className="t-accent">{s.unit}</span>
+          {stats.map((s) => {
+            const isNumeric = /^\d/.test(s.num);
+            return (
+              <div key={s.label} className="bg-[var(--bg-elev)] p-6 md:p-7">
+                <div className={`t-serif leading-none mb-2 t-strong ${isNumeric ? 'text-[34px]' : 'text-[22px] md:text-[26px]'}`}>
+                  {s.num}<span className="t-accent">{s.unit}</span>
+                </div>
+                <div className="text-[13px] t-muted">{s.label}</div>
               </div>
-              <div className="text-[13px] t-muted">{s.label}</div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -187,9 +190,8 @@ export default function Home() {
             <motion.article
               key={x.role}
               {...fade}
-              className={`grid grid-cols-1 md:grid-cols-[180px_1fr] gap-3 md:gap-7 py-7 ${i > 0 ? 'divider-line' : ''}`}
+              className={`py-7 ${i > 0 ? 'divider-line' : ''}`}
             >
-              <div className="t-mono text-[13px] t-muted pt-1">{x.when}</div>
               <div>
                 <h3 className="text-xl t-serif mb-1 t-strong">
                   {x.role}{x.suffix && <span className="t-muted text-sm font-[family-name:var(--sans)]"> {x.suffix}</span>}
@@ -218,7 +220,7 @@ export default function Home() {
           <Link to="/works" className="t-mono text-[13px] t-accent">All projects →</Link>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[18px]">
-          {projects.map((p) => (
+          {projects.filter((p) => !p.hidden).map((p) => (
             <motion.article key={p.name} {...fade} className="card-soft rounded-2xl p-7">
               <div className="t-mono text-[11px] t-accent-2 tracking-[0.08em] uppercase mb-1">{p.tag}</div>
               <h3 className="text-xl mb-2 t-strong">{p.name}</h3>
