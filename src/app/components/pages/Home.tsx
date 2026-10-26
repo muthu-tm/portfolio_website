@@ -34,8 +34,8 @@ const experience = [
     suffix: '· Contract',
     company: 'Forward-Deployed AI Delivery',
     aiNative: true,
-    desc: 'Embedded with clients to ship Generative-AI products from discovery to production: governed multi-agent asset agents, a RAG Copilot over secured MCP, a predictive engine for healthcare HVAC, and an LLM document parser with embeddings and vector search.',
-    tags: ['Generative AI', 'RAG / MCP', 'Multi-Agent', 'Guardrails', 'Databricks', 'AWS'],
+    desc: 'Embedded with clients to ship Generative-AI products from discovery to production: governed multi-agent asset agents, a RAG Copilot over secured MCP, a predictive engine for healthcare HVAC, and a governed IT Support Copilot on Azure for multi-tenant organisations.',
+    tags: ['Generative AI', 'RAG / MCP', 'Multi-Agent', 'Guardrails', 'Azure', 'Databricks', 'AWS'],
   },
   {
     when: 'Oct 2024 — Aug 2025',
@@ -60,17 +60,18 @@ const projects = [
   { tag: 'AI-Native', name: 'Universal AI Copilot', desc: 'A RAG assistant that plugs into any system through a secured MCP connection — using tool/function calling and semantic search to expose one conversational interface over scattered enterprise tools.', tags: ['RAG', 'MCP', 'Tool-Calling', 'Embeddings', 'FastAPI'] },
   { tag: 'AI-Native', name: 'AIDLC · BRD Multi-Agent Engine', desc: 'An AI Development Life Cycle (AIDLC) engine orchestrating LangChain / LangGraph multi-agent workflows that take business requirements from ideation to production, with LLM evaluation and governed medallion data.', tags: ['AIDLC', 'LangGraph', 'LangChain', 'Multi-Agent', 'LLM Evaluation'] },
   { tag: 'AI-Native', name: 'HVAC Predictive Engine', desc: 'Predictive analysis for healthcare HVAC systems — time-series forecasting and anomaly detection that turn real-time telemetry into actions that cut downtime and improve efficiency, with drift monitoring.', tags: ['Forecasting', 'Anomaly Detection', 'MLflow', 'IoT Data', 'AWS'] },
+  { tag: 'AI-Native', name: 'IT Support Copilot', desc: 'A policy-driven, governed AI copilot for multi-tenant organisations — a governed agentic workflow with three-tier RAG (hybrid pgvector + BM25, RRF fusion) on Azure, grounded by content filtering and groundedness evaluation, with structured auto-escalation to IT.', tags: ['RAG', 'pgvector', 'Azure AI Foundry', 'Copilot Studio', 'Guardrails'] },
 ];
 
 const skills = [
-  { cat: 'Generative AI & Agentic', vals: 'Generative AI · Foundation Models (OpenAI · Claude · Hugging Face · LLaMA) · LLMs · RAG · Fine-Tuning · Vector DBs · AIDLC · Multi-Agent · LangGraph · LangChain · MCP · Tool-Calling · Prompt Engineering · Embeddings · Semantic Search · Guardrails · Responsible AI · Human-in-the-Loop · LLM Evaluation' },
+  { cat: 'Generative AI & Agentic', vals: 'Generative AI · Foundation Models (OpenAI · Claude · Hugging Face · LLaMA) · LLMs · RAG · Hybrid Search (RRF) · pgvector · Fine-Tuning · Vector DBs · AIDLC · Multi-Agent · LangGraph · LangChain · MCP · Tool-Calling · Prompt Engineering · Embeddings · Semantic Search · Guardrails · Responsible AI · Human-in-the-Loop · LLM Evaluation · Groundedness Evaluation' },
   { cat: 'Forward-Deployed Delivery', vals: 'Customer-embedded delivery · Discovery · Scoping · System Design · Production Rollout · Stakeholder Collaboration · End-to-End Ownership' },
   { cat: 'MLOps & AI Engineering', vals: 'MLflow · Model Registry · Feature Store · FastAPI · Docker · CI/CD · Drift Detection · Model Monitoring · Computer Vision' },
   { cat: 'Data Engineering', vals: 'Databricks · Airflow · PySpark · AWS Glue · Delta Lake · Serverless ETL' },
   { cat: 'Languages', vals: 'Golang · Python · TypeScript · Solidity · Java · Dart' },
   { cat: 'Web3 & Blockchain', vals: 'EVM · Cosmos SDK · Polygon CDK · Privado ID · Hyperledger' },
   { cat: 'Backend & APIs', vals: 'FastAPI · ExpressJS · Hasura (GraphQL) · gRPC' },
-  { cat: 'Cloud & Infra', vals: 'AWS · GCP · Azure · Docker · Serverless' },
+  { cat: 'Cloud & Infra', vals: 'AWS · GCP · Azure · Azure AI Foundry · Copilot Studio · PostgreSQL/pgvector · Docker · Serverless' },
 ];
 
 const fade = {

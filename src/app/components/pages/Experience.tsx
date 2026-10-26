@@ -28,8 +28,9 @@ const experiences: ExperienceItem[] = [
       { title: 'Governed Asset Agents', description: 'Embedded with the client to build an Enterprise Asset Management system of governed, multi-agent asset agents that predict, analyse, and act on operational data — combining anomaly detection with LLM reasoning, wrapped in guardrails, Responsible AI, and human-in-the-loop review.' },
       { title: 'Universal RAG Copilot (MCP)', description: 'Engineered a RAG Copilot on foundation models (OpenAI, Claude, Hugging Face, LLaMA) that plugs into any system through a secured Model Context Protocol (MCP) connection, using tool/function calling and semantic search over enterprise data — with evaluation keeping responses grounded.' },
       { title: 'Predictive Engine & LLM Document Parser', description: 'Shipped a predictive engine for healthcare HVAC (time-series forecasting and anomaly detection) and an LLM document parser using embeddings, vector search, and RAG to turn unstructured enterprise data into structured output.' },
+      { title: 'IT Support Copilot', description: 'Built a policy-driven, governed RAG copilot for multi-tenant organisations: a governed agentic workflow with a three-tier retrieval cascade (hybrid pgvector + BM25, RRF fusion) on Azure AI Foundry and Copilot Studio, grounded by content filtering and groundedness evaluation, with structured auto-escalation to IT.' },
     ],
-    skills: 'Generative AI, LLMs (OpenAI, Claude, Hugging Face, LLaMA), RAG, Fine-Tuning, Vector DBs, Multi-Agent, MCP, Guardrails, Responsible AI, Python, Databricks, FastAPI, AWS',
+    skills: 'Generative AI, LLMs (OpenAI, Claude, Hugging Face, LLaMA), RAG, Hybrid Search (RRF), pgvector, Fine-Tuning, Multi-Agent, MCP, Guardrails, Responsible AI, Python, Databricks, Azure AI Foundry, Copilot Studio, FastAPI, AWS',
   },
   {
     company: 'Greenmen Consulting',

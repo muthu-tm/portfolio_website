@@ -61,6 +61,18 @@ const projects: Project[] = [
     skills: 'Python, Databricks, Time-Series Forecasting, Anomaly Detection, MLflow, Drift Monitoring, AWS, IoT Data',
   },
   {
+    name: 'IT Support Copilot',
+    tagline: 'Governed · Multi-Tenant',
+    category: 'AI-Native',
+    aiNative: true,
+    pillars: [
+      { title: 'Governed Agentic Workflow', description: 'A policy-driven copilot that acknowledges, asks one clarifying question, delivers up to five cited steps, and hard-stops to escalate when confidence is low — it never guesses, with strict prohibitions on privileged actions and sensitive data.' },
+      { title: 'Three-Tier RAG on Azure', description: 'Retrieval cascades local → shared → vendor knowledge tiers, using hybrid search (pgvector HNSW + PostgreSQL BM25 fused with RRF) and a 0.70 confidence gate that escalates rather than answer poorly.' },
+      { title: 'Grounded & Multi-Tenant', description: 'Built on Copilot Studio and Azure AI Foundry (GPT-4o) with content filtering, groundedness evaluation, and per-tenant isolation — all data staying inside the tenant boundary.' },
+    ],
+    skills: 'Azure AI Foundry, Copilot Studio, RAG, pgvector, Hybrid Search (RRF), Azure Functions (Python), Power Automate, Entra ID, Groundedness Evaluation',
+  },
+  {
     name: 'Crypit.app',
     tagline: 'Crypto Super App',
     category: 'Web3 & Ventures',
