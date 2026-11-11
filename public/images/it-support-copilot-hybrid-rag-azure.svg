@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="720" height="300" role="img" aria-labelledby="t d">
+<title id="t">IT support copilot with hybrid RAG search on Azure</title>
+<desc id="d">IT Support Copilot: an employee question runs hybrid retrieval over pgvector embeddings and BM25 keyword search, fused with reciprocal rank fusion into a grounded, cited answer with a groundedness score and auto-escalation to IT.</desc>
+<style>
+.ti{font-family:Inter,'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;fill:#eef0ff;font-weight:500}
+.mo{font-family:'JetBrains Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;fill:#9ea3cc;letter-spacing:.5px}
+.lb{font-family:'JetBrains Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;fill:#a5b4fc;letter-spacing:1.6px}
+.bx{fill:#1d1f3b;stroke:#353867;stroke-width:1}
+.hi{fill:#152f3a;stroke:#5eead4;stroke-width:1.2}
+.hv{fill:#24245a;stroke:#a5b4fc;stroke-width:1.2}
+.am{fill:#2c2616;stroke:#f2b84b;stroke-width:1.2}
+.ln{stroke:#5eead4;stroke-width:1.4;fill:none}
+.lt{stroke:#5eead4;stroke-width:1.3;fill:none;opacity:.8}
+.li{stroke:#a5b4fc;stroke-width:1.3;fill:none;opacity:.8}
+.dash{stroke-dasharray:4 4}
+.pf{fill:none;stroke:#5eead4;stroke-width:2.2;stroke-linecap:square}
+@media (prefers-reduced-motion: reduce){.pf{display:none}}
+</style>
+<rect width="720" height="300" fill="#14152b"/>
+
+<rect x="24" y="24" width="672" height="44" fill="#1d1f3b" stroke="#a5b4fc"/><text class="mo" x="40" y="51" style="fill:#a5b4fc">ASK</text><text class="ti" x="80" y="51" style="font-size:14px">“VPN keeps dropping after the latest update”</text>
+<rect class="hv" x="24" y="100" width="196" height="64"/>
+<text class="ti" style="font-size:14px" x="36" y="129.0">Vector search</text><text class="mo" x="36" y="145.0">pgvector embeddings</text>
+<rect class="bx" x="24" y="188" width="196" height="64"/>
+<text class="ti" style="font-size:14px" x="36" y="217.0">Keyword search</text><text class="mo" x="36" y="233.0">BM25</text>
+<rect class="bx" x="268" y="144" width="124" height="64"/>
+<text class="ti" style="font-size:14px" x="280" y="173.0">RRF fusion</text><text class="mo" x="280" y="189.0">rerank top-k</text>
+<path class="li" d="M220 132 C244 132 244 168 268 168"/><path class="li" d="M220 220 C244 220 244 184 268 184"/>
+<circle cx="268" cy="176" r="3" fill="#a5b4fc"/>
+<rect class="hi" x="440" y="92" width="256" height="184"/>
+<text class="ti" x="456" y="120">Grounded answer</text>
+<rect x="456" y="134" width="210" height="5" fill="#353867"/>
+<rect x="456" y="148" width="190" height="5" fill="#353867"/>
+<rect x="456" y="162" width="200" height="5" fill="#353867"/>
+<text class="mo" x="456" y="196" style="fill:#5eead4">[1] KB-2041  [2] KB-1987</text><text class="mo" x="456" y="220">groundedness</text><rect x="560" y="212" width="120" height="8" fill="#353867"/><rect x="560" y="212" width="104" height="8" fill="#5eead4"/>
+<rect x="456" y="236" width="224" height="26" fill="none" stroke="#f2b84b"/><text class="mo" x="468" y="253" style="fill:#f2b84b">AUTO-ESCALATE TO IT →</text>
+<path class="ln" d="M392 176 H440"/>
+<circle cx="440" cy="176" r="3" fill="#5eead4"/>
+<path class="pf" d="M220 132 C244 132 244 168 268 168" stroke-dasharray="14 109" stroke-dashoffset="14"><animate attributeName="stroke-dashoffset" values="14;-109" dur="2.6s" begin="0.0s" repeatCount="indefinite"/></path>
+<path class="pf" d="M220 220 C244 220 244 184 268 184" stroke-dasharray="14 109" stroke-dashoffset="14"><animate attributeName="stroke-dashoffset" values="14;-109" dur="2.6s" begin="0.7s" repeatCount="indefinite"/></path>
+<path class="pf" d="M392 176 H440" stroke-dasharray="14 88" stroke-dashoffset="14"><animate attributeName="stroke-dashoffset" values="14;-88" dur="2.6s" begin="1.4s" repeatCount="indefinite"/></path>
+</svg>

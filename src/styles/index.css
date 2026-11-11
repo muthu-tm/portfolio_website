@@ -1,3 +1,9 @@
+/* Fonts are loaded via <link> in index.html (preconnect + stylesheet) instead of a
+   render-blocking CSS @import chain:
+   - Fraunces       : serif display headings
+   - Inter          : body and UI
+   - JetBrains Mono : labels, tags, metadata */
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
+@import './enterprise.css';

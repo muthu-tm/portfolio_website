@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-labelledby="t d">
+<title id="t">Career arc of Muthu Thavamani: enterprise systems to AI-native engineering</title>
+<desc id="d">Eleven-year career arc of Muthu Thavamani: enterprise systems and financial protocols, IoT and live streaming, cloud security backends, Web3 protocols and decentralized identity, Databricks data engineering, and AI-native engineering with multi-agent systems, RAG, MCP and guardrails.</desc>
+<style>
+.ti{font-family:Inter,'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;fill:#eef0ff;font-weight:500}
+.mo{font-family:'JetBrains Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;fill:#9ea3cc;letter-spacing:.5px}
+.lb{font-family:'JetBrains Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;fill:#a5b4fc;letter-spacing:1.6px}
+.bx{fill:#1d1f3b;stroke:#353867;stroke-width:1}
+.hi{fill:#152f3a;stroke:#5eead4;stroke-width:1.2}
+.hv{fill:#24245a;stroke:#a5b4fc;stroke-width:1.2}
+.am{fill:#2c2616;stroke:#f2b84b;stroke-width:1.2}
+.ln{stroke:#5eead4;stroke-width:1.4;fill:none}
+.lt{stroke:#5eead4;stroke-width:1.3;fill:none;opacity:.8}
+.li{stroke:#a5b4fc;stroke-width:1.3;fill:none;opacity:.8}
+.dash{stroke-dasharray:4 4}
+.pf{fill:none;stroke:#5eead4;stroke-width:2.2;stroke-linecap:square}
+@media (prefers-reduced-motion: reduce){.pf{display:none}}
+</style>
+<rect width="1200" height="320" fill="#14152b"/>
+
+<text class="lb" x="48" y="46" style="fill:#eef0ff">11 YEARS · CAREER ARC</text><text class="mo" x="1152" y="46" text-anchor="end">ILLUSTRATIVE</text><line x1="48" y1="62" x2="1152" y2="62" stroke="#353867"/>
+<rect class="bx" x="48" y="86" width="168" height="112"/><text class="mo" x="62" y="108" style="fill:#a5b4fc">01</text><text class="ti" x="62" y="134" style="font-size:15px">Enterprise systems</text><text class="mo" x="62" y="160">FIX · Hyperledger</text><text class="mo" x="62" y="178">Java · Go</text>
+<line x1="132" y1="198" x2="132" y2="290" stroke="#353867" stroke-dasharray="2 4"/>
+<rect class="bx" x="236" y="86" width="168" height="112"/><text class="mo" x="250" y="108" style="fill:#a5b4fc">02</text><text class="ti" x="250" y="134" style="font-size:15px">IoT &amp; streaming</text><text class="mo" x="250" y="160">live video · VOD</text><text class="mo" x="250" y="178">TF.js pose</text>
+<line x1="320" y1="198" x2="320" y2="278" stroke="#353867" stroke-dasharray="2 4"/>
+<rect class="bx" x="424" y="86" width="168" height="112"/><text class="mo" x="438" y="108" style="fill:#a5b4fc">03</text><text class="ti" x="438" y="134" style="font-size:15px">Security backend</text><text class="mo" x="438" y="160">multi-cloud assets</text><text class="mo" x="438" y="178">NVD intel</text>
+<line x1="508" y1="198" x2="508" y2="266" stroke="#353867" stroke-dasharray="2 4"/>
+<rect class="bx" x="612" y="86" width="168" height="112"/><text class="mo" x="626" y="108" style="fill:#a5b4fc">04</text><text class="ti" x="626" y="134" style="font-size:15px">Web3 protocols</text><text class="mo" x="626" y="160">Polygon CDK · DID</text><text class="mo" x="626" y="178">400K+ identities</text>
+<line x1="696" y1="198" x2="696" y2="254" stroke="#353867" stroke-dasharray="2 4"/>
+<rect class="hv" x="800" y="86" width="168" height="112"/><text class="mo" x="814" y="108" style="fill:#a5b4fc">05</text><text class="ti" x="814" y="134" style="font-size:15px">Data engineering</text><text class="mo" x="814" y="160">Databricks</text><text class="mo" x="814" y="178">medallion · delta</text>
+<line x1="884" y1="198" x2="884" y2="242" stroke="#353867" stroke-dasharray="2 4"/>
+<rect class="hi" x="988" y="86" width="168" height="112"/><text class="mo" x="1002" y="108" style="fill:#a5b4fc">06</text><text class="ti" x="1002" y="134" style="font-size:15px">AI-native</text><text class="mo" x="1002" y="160">multi-agent · RAG</text><text class="mo" x="1002" y="178">MCP · guardrails</text>
+<line x1="1072" y1="198" x2="1072" y2="230" stroke="#353867" stroke-dasharray="2 4"/>
+<path class="ln" d="M132 290 L320 278 L508 266 L696 254 L884 242 L1072 230"/>
+<circle cx="132" cy="290" r="4" fill="#a5b4fc"/>
+<circle cx="320" cy="278" r="4" fill="#a5b4fc"/>
+<circle cx="508" cy="266" r="4" fill="#a5b4fc"/>
+<circle cx="696" cy="254" r="4" fill="#a5b4fc"/>
+<circle cx="884" cy="242" r="4" fill="#a5b4fc"/>
+<circle cx="1072" cy="230" r="4" fill="#5eead4"/>
+<text class="mo" x="1152" y="306" text-anchor="end">ENTERPRISE → IOT → SECURITY → WEB3 → DATA → AI-NATIVE</text>
+<path class="fx" d="M48 62 H1152" fill="none" stroke="none"/>
+<path class="pf" d="M132 290 L320 278 L508 266 L696 254 L884 242 L1072 230" stroke-dasharray="14 982" stroke-dashoffset="14"><animate attributeName="stroke-dashoffset" values="14;-982" dur="17.1s" begin="0.0s" repeatCount="indefinite"/></path>
+<path class="pf" d="M48 62 H1152" stroke-dasharray="14 1144" stroke-dashoffset="14"><animate attributeName="stroke-dashoffset" values="14;-1144" dur="20.1s" begin="0.7s" repeatCount="indefinite"/></path>
+</svg>

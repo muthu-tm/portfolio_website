@@ -17,7 +17,6 @@ import { createRequire } from 'node:module';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const DIST = join(ROOT, 'dist');
-const ROUTES = ['/', '/experience', '/works', '/contact'];
 
 // --- Minimal browser shims so component modules render cleanly in Node. ---
 const noop = () => {};
@@ -58,6 +57,72 @@ if (!globalThis.document) {
   };
 }
 
+
+// --- Per-route <head>: unique title, description, canonical, social tags and
+// JSON-LD for every page (values live in src/app/seo/pageMeta.ts). ---
+const esc = (v) => String(v).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+
+function setTag(html, re, replacement, label, route) {
+  if (!re.test(html)) {
+    console.warn(`[ssr] ${route}: could not find ${label} in template`);
+    return html;
+  }
+  return html.replace(re, replacement);
+}
+
+function buildHead(template, meta, SITE_URL) {
+  const route = meta.path;
+  const url = route === '/' ? `${SITE_URL}/` : `${SITE_URL}${route}`;
+  let h = template;
+  h = setTag(h, /<title>[\s\S]*?<\/title>/, `<title>${esc(meta.title)}</title>`, 'title', route);
+  const metas = [
+    [/(<meta name="description" content=")[^"]*(")/, meta.description, 'description'],
+    [/(<meta property="og:url" content=")[^"]*(")/, url, 'og:url'],
+    [/(<meta property="og:title" content=")[^"]*(")/, meta.title, 'og:title'],
+    [/(<meta property="og:description" content=")[^"]*(")/, meta.description, 'og:description'],
+    [/(<meta name="twitter:title" content=")[^"]*(")/, meta.title, 'twitter:title'],
+    [/(<meta name="twitter:description" content=")[^"]*(")/, meta.description, 'twitter:description'],
+    [/(<link rel="canonical" href=")[^"]*(")/, url, 'canonical'],
+  ];
+  for (const [re, val, label] of metas) h = setTag(h, re, `$1${esc(val)}$2`, label, route);
+  if (route !== '/') h = h.replace('<meta property="og:type" content="profile" />', '<meta property="og:type" content="website" />');
+
+  // JSON-LD: keep WebSite + Person, swap the page node per route, add breadcrumbs.
+  const ldRe = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/;
+  const m = h.match(ldRe);
+  if (!m) return h;
+  const ld = JSON.parse(m[1]);
+  const pageId = `${url}#webpage`;
+  const graph = ld['@graph'].filter((n) => n['@type'] !== 'ProfilePage');
+  const page = {
+    '@type': meta.pageType,
+    '@id': route === '/' ? `${SITE_URL}/#profilepage` : pageId,
+    url,
+    name: meta.title,
+    description: meta.description,
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    inLanguage: 'en',
+    dateModified: new Date().toISOString().slice(0, 10),
+    primaryImageOfPage: { '@type': 'ImageObject', url: `${SITE_URL}${meta.image}`, caption: meta.imageAlt },
+  };
+  if (meta.pageType === 'ProfilePage') page.mainEntity = { '@id': `${SITE_URL}/#person` };
+  else page.about = { '@id': `${SITE_URL}/#person` };
+  if (route !== '/') {
+    page.breadcrumb = { '@id': `${url}#breadcrumb` };
+    graph.push({
+      '@type': 'BreadcrumbList',
+      '@id': `${url}#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: meta.crumb, item: url },
+      ],
+    });
+  }
+  graph.splice(1, 0, page);
+  ld['@graph'] = graph;
+  return h.replace(ldRe, `<script type="application/ld+json">\n${JSON.stringify(ld, null, 2)}\n    </script>`);
+}
+
 async function main() {
   if (!existsSync(join(DIST, 'index.html'))) {
     console.error('[ssr] dist/index.html not found — run `vite build` first.');
@@ -81,17 +146,19 @@ async function main() {
 
   const template = await readFile(join(DIST, 'index.html'), 'utf8');
 
+  const ROUTES = Object.keys(ssr.PAGE_META);
   for (const route of ROUTES) {
     let html;
+    const head = buildHead(template, ssr.PAGE_META[route], ssr.SITE_URL);
     try {
       const markup = ssr.render(route);
-      html = template.replace(
+      html = head.replace(
         '<div id="root"></div>',
         `<div id="root">${markup}</div>`
       );
     } catch (e) {
       console.warn(`[ssr] render failed for ${route}: ${e.message} — leaving shell.`);
-      html = template;
+      html = head;
     }
     const outDir = route === '/' ? DIST : join(DIST, route.replace(/^\//, ''));
     await mkdir(outDir, { recursive: true });

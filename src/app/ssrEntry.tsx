@@ -2,6 +2,8 @@ import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import AppRoutes from './AppRoutes';
 
+export { PAGE_META, SITE_URL } from './seo/pageMeta';
+
 /**
  * SSR render entry. Imported through a single tsx module graph by
  * scripts/prerender-ssr.mjs so StaticRouter and the components' useLocation/

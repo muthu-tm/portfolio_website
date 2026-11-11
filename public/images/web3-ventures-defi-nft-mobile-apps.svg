@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-labelledby="t d">
+<title id="t">Web3 and venture products: crypto super app, token multi-sender, NFT marketplace and quick-commerce app</title>
+<desc id="d">Web3 and venture products built by Muthu Thavamani: the Crypit crypto super app dashboard, the 3suite EVM token multi-sender and minting suite, a decentralized NFT marketplace on IPFS, and the Unique Foods Flutter quick-commerce mobile app.</desc>
+<style>
+.ti{font-family:Inter,'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;fill:#eef0ff;font-weight:500}
+.mo{font-family:'JetBrains Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;fill:#9ea3cc;letter-spacing:.5px}
+.lb{font-family:'JetBrains Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;fill:#a5b4fc;letter-spacing:1.6px}
+.bx{fill:#1d1f3b;stroke:#353867;stroke-width:1}
+.hi{fill:#152f3a;stroke:#5eead4;stroke-width:1.2}
+.hv{fill:#24245a;stroke:#a5b4fc;stroke-width:1.2}
+.am{fill:#2c2616;stroke:#f2b84b;stroke-width:1.2}
+.ln{stroke:#5eead4;stroke-width:1.4;fill:none}
+.lt{stroke:#5eead4;stroke-width:1.3;fill:none;opacity:.8}
+.li{stroke:#a5b4fc;stroke-width:1.3;fill:none;opacity:.8}
+.dash{stroke-dasharray:4 4}
+.pf{fill:none;stroke:#5eead4;stroke-width:2.2;stroke-linecap:square}
+@media (prefers-reduced-motion: reduce){.pf{display:none}}
+</style>
+<rect width="1200" height="300" fill="#14152b"/>
+
+<rect class="hi" x="48" y="24" width="264" height="252"/>
+<text class="ti" x="64" y="52">Crypto super app</text><text class="mo" x="64" y="70">Crypit · DeFi dashboard</text>
+<rect class="bx" x="328" y="24" width="264" height="252"/>
+<text class="ti" x="344" y="52">Token multi-sender</text><text class="mo" x="344" y="70">3suite · EVM chains</text>
+<rect class="bx" x="608" y="24" width="264" height="252"/>
+<text class="ti" x="624" y="52">NFT marketplace</text><text class="mo" x="624" y="70">Solidity · IPFS</text>
+<rect class="bx" x="888" y="24" width="264" height="252"/>
+<text class="ti" x="904" y="52">Quick-commerce app</text><text class="mo" x="904" y="70">Flutter · 5K+ users</text>
+<text class="mo" x="64" y="104">PORTFOLIO</text><text class="ti" x="64" y="128" style="font-size:20px">$ 12,480</text>
+<rect x="64" y="212" width="18" height="40" fill="#a5b4fc" opacity="0.55"/>
+<rect x="94" y="190" width="18" height="62" fill="#a5b4fc" opacity="0.55"/>
+<rect x="124" y="204" width="18" height="48" fill="#a5b4fc" opacity="0.55"/>
+<rect x="154" y="172" width="18" height="80" fill="#a5b4fc" opacity="0.55"/>
+<rect x="184" y="182" width="18" height="70" fill="#a5b4fc" opacity="0.55"/>
+<rect x="214" y="156" width="18" height="96" fill="#a5b4fc" opacity="0.55"/>
+<rect x="244" y="164" width="18" height="88" fill="#5eead4" opacity="1"/>
+<rect class="hv" x="344" y="140" width="70" height="36"/>
+<text class="ti" style="font-size:13px" x="356" y="163.0">Sender</text>
+<path class="lt" d="M414 158 C458 158 458 106 498 106"/><rect x="498" y="96" width="78" height="20" fill="#1d1f3b" stroke="#353867"/><text class="mo" x="506" y="110" style="font-size:10px">0xa3f…</text>
+<path class="lt" d="M414 158 C458 158 458 138 498 138"/><rect x="498" y="128" width="78" height="20" fill="#1d1f3b" stroke="#353867"/><text class="mo" x="506" y="142" style="font-size:10px">0x9c1…</text>
+<path class="lt" d="M414 158 C458 158 458 170 498 170"/><rect x="498" y="160" width="78" height="20" fill="#1d1f3b" stroke="#353867"/><text class="mo" x="506" y="174" style="font-size:10px">0x4be…</text>
+<path class="lt" d="M414 158 C458 158 458 202 498 202"/><rect x="498" y="192" width="78" height="20" fill="#1d1f3b" stroke="#353867"/><text class="mo" x="506" y="206" style="font-size:10px">0xd07…</text>
+<path class="lt" d="M414 158 C458 158 458 234 498 234"/><rect x="498" y="224" width="78" height="20" fill="#1d1f3b" stroke="#353867"/><text class="mo" x="506" y="238" style="font-size:10px">0x72a…</text>
+<rect class="bx" x="624" y="90" width="110" height="82"/><path d="M644 150 l22 -26 l16 18 l12 -10 l20 18" stroke="#a5b4fc" fill="none"/><circle cx="704" cy="112" r="7" fill="#353867"/>
+<rect class="hi" x="744" y="90" width="110" height="82"/><path d="M764 150 l22 -26 l16 18 l12 -10 l20 18" stroke="#a5b4fc" fill="none"/><circle cx="824" cy="112" r="7" fill="#5eead4"/>
+<rect class="bx" x="624" y="182" width="110" height="82"/><path d="M644 242 l22 -26 l16 18 l12 -10 l20 18" stroke="#a5b4fc" fill="none"/><circle cx="704" cy="204" r="7" fill="#353867"/>
+<rect class="bx" x="744" y="182" width="110" height="82"/><path d="M764 242 l22 -26 l16 18 l12 -10 l20 18" stroke="#a5b4fc" fill="none"/><circle cx="824" cy="204" r="7" fill="#353867"/>
+<text class="mo" x="748" y="166" style="fill:#5eead4">BID ↑</text>
+<rect x="970" y="86" width="100" height="180" fill="#1d1f3b" stroke="#353867"/><rect x="980" y="98" width="80" height="120" fill="#181a33"/>
+<path d="M988 200 L1008 170 L1000 140 L1038 116" stroke="#5eead4" stroke-width="2" fill="none" class="dash"/>
+<circle cx="988" cy="200" r="4" fill="#a5b4fc"/>
+<circle cx="1038" cy="116" r="5" fill="#f2b84b"/>
+<rect x="980" y="228" width="80" height="24" fill="#5eead4"/><text class="mo" x="1020" y="244" text-anchor="middle" style="fill:#062a26">TRACK</text>
+<path class="pf" d="M414 158 C458 158 458 106 498 106" stroke-dasharray="14 154" stroke-dashoffset="14"><animate attributeName="stroke-dashoffset" values="14;-154" dur="2.6s" begin="0.0s" repeatCount="indefinite"/></path>
+<path class="pf" d="M414 158 C458 158 458 138 498 138" stroke-dasharray="14 139" stroke-dashoffset="14"><animate attributeName="stroke-dashoffset" values="14;-139" dur="2.6s" begin="0.7s" repeatCount="indefinite"/></path>
+<path class="pf" d="M414 158 C458 158 458 170 498 170" stroke-dasharray="14 138" stroke-dashoffset="14"><animate attributeName="stroke-dashoffset" values="14;-138" dur="2.6s" begin="1.4s" repeatCount="indefinite"/></path>
+<path class="pf" d="M414 158 C458 158 458 202 498 202" stroke-dasharray="14 149" stroke-dashoffset="14"><animate attributeName="stroke-dashoffset" values="14;-149" dur="2.6s" begin="2.1s" repeatCount="indefinite"/></path>
+<path class="pf" d="M414 158 C458 158 458 234 498 234" stroke-dasharray="14 170" stroke-dashoffset="14"><animate attributeName="stroke-dashoffset" values="14;-170" dur="2.6s" begin="2.8s" repeatCount="indefinite"/></path>
+</svg>
