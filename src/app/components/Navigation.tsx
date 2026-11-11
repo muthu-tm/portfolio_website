@@ -31,7 +31,7 @@ export default function Navigation() {
       <div className="wrap flex items-center justify-between h-[68px]">
         <Link to="/" className="flex items-center gap-3">
           <span className="t-mono text-[11px] t-accent border border-[var(--line-strong)] px-[7px] py-[3px] rounded-md">MTM</span>
-          <span className="t-serif text-lg t-strong">Muthu Thavamani</span>
+          <span className="t-serif text-base min-[360px]:text-lg t-strong whitespace-nowrap">Muthu Thavamani</span>
         </Link>
 
         {/* Desktop */}
@@ -40,7 +40,7 @@ export default function Navigation() {
             <Link
               key={item.path}
               to={item.path}
-              className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
+              className={`nav-link ${item.path === '/contact' ? 'nav-cta' : ''} ${location.pathname === item.path ? 'active' : ''}`}
             >
               {item.label}
             </Link>

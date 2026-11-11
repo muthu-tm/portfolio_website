@@ -1,0 +1,5 @@
+# muthuthavamani.com — everything is public; search and AI answer engines welcome.
+User-agent: *
+Allow: /
+
+Sitemap: https://www.muthuthavamani.com/sitemap.xml

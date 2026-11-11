@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 240" width="480" height="240" role="img" aria-labelledby="t d">
+<title id="t">Distributed systems and Web3 protocol architecture illustration</title>
+<desc id="d">Technical architecture and Web3: a chain of linked blocks secured by a network of validator nodes, with decentralized identity and serverless backends.</desc>
+<style>
+.ti{font-family:Inter,'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;fill:#eef0ff;font-weight:500}
+.mo{font-family:'JetBrains Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;fill:#9ea3cc;letter-spacing:.5px}
+.lb{font-family:'JetBrains Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;fill:#a5b4fc;letter-spacing:1.6px}
+.bx{fill:#1d1f3b;stroke:#353867;stroke-width:1}
+.hi{fill:#152f3a;stroke:#5eead4;stroke-width:1.2}
+.hv{fill:#24245a;stroke:#a5b4fc;stroke-width:1.2}
+.am{fill:#2c2616;stroke:#f2b84b;stroke-width:1.2}
+.ln{stroke:#5eead4;stroke-width:1.4;fill:none}
+.lt{stroke:#5eead4;stroke-width:1.3;fill:none;opacity:.8}
+.li{stroke:#a5b4fc;stroke-width:1.3;fill:none;opacity:.8}
+.dash{stroke-dasharray:4 4}
+.pf{fill:none;stroke:#5eead4;stroke-width:2.2;stroke-linecap:square}
+@media (prefers-reduced-motion: reduce){.pf{display:none}}
+</style>
+<rect width="480" height="240" fill="#14152b"/>
+
+<text class="lb" x="24" y="30" text-anchor="start">PROTOCOL · DISTRIBUTED</text>
+<line x1="70" y1="80" x2="130" y2="56" stroke="#353867"/>
+<line x1="70" y1="80" x2="100" y2="190" stroke="#353867"/>
+<line x1="130" y1="56" x2="200" y2="74" stroke="#353867"/>
+<line x1="200" y1="74" x2="270" y2="52" stroke="#353867"/>
+<line x1="270" y1="52" x2="340" y2="72" stroke="#353867"/>
+<line x1="340" y1="72" x2="410" y2="60" stroke="#353867"/>
+<line x1="100" y1="190" x2="190" y2="206" stroke="#353867"/>
+<line x1="190" y1="206" x2="300" y2="196" stroke="#353867"/>
+<line x1="300" y1="196" x2="400" y2="186" stroke="#353867"/>
+<circle cx="70" cy="80" r="4" fill="#a5b4fc"/>
+<circle cx="130" cy="56" r="4" fill="#a5b4fc"/>
+<circle cx="200" cy="74" r="4" fill="#a5b4fc"/>
+<circle cx="270" cy="52" r="4" fill="#a5b4fc"/>
+<circle cx="340" cy="72" r="4" fill="#a5b4fc"/>
+<circle cx="410" cy="60" r="4" fill="#a5b4fc"/>
+<circle cx="100" cy="190" r="4" fill="#a5b4fc"/>
+<circle cx="190" cy="206" r="4" fill="#a5b4fc"/>
+<circle cx="300" cy="196" r="4" fill="#a5b4fc"/>
+<circle cx="400" cy="186" r="4" fill="#a5b4fc"/>
+<rect class="bx" x="44" y="106" width="76" height="56"/><text class="mo" x="54" y="126">BLOCK</text><text class="ti" x="54" y="148" style="font-size:14px">#1024</text>
+<path class="ln" d="M120 134 h30"/>
+<circle cx="135" cy="134" r="3" fill="#5eead4"/>
+<rect class="bx" x="150" y="106" width="76" height="56"/><text class="mo" x="160" y="126">BLOCK</text><text class="ti" x="160" y="148" style="font-size:14px">#1025</text>
+<path class="ln" d="M226 134 h30"/>
+<circle cx="241" cy="134" r="3" fill="#5eead4"/>
+<rect class="bx" x="256" y="106" width="76" height="56"/><text class="mo" x="266" y="126">BLOCK</text><text class="ti" x="266" y="148" style="font-size:14px">#1026</text>
+<path class="ln" d="M332 134 h30"/>
+<circle cx="347" cy="134" r="3" fill="#5eead4"/>
+<rect class="hi" x="362" y="106" width="76" height="56"/><text class="mo" x="372" y="126">BLOCK</text><text class="ti" x="372" y="148" style="font-size:14px">#1027</text>
+<text class="mo" x="24" y="230">L1 · consensus · decentralized ID · Go</text>
+<path class="fx" d="M70 80 L130 56 L200 74 L270 52 L340 72 L410 60" fill="none" stroke="none"/>
+<path class="fx" d="M100 190 L190 206 L300 196 L400 186" fill="none" stroke="none"/>
+<path class="fx" d="M120 134 H150" fill="none" stroke="none"/>
+<path class="fx" d="M226 134 H256" fill="none" stroke="none"/>
+<path class="fx" d="M332 134 H362" fill="none" stroke="none"/>
+<path class="pf" d="M70 80 L130 56 L200 74 L270 52 L340 72 L410 60" stroke-dasharray="14 394" stroke-dashoffset="14"><animate attributeName="stroke-dashoffset" values="14;-394" dur="6.4s" begin="0.0s" repeatCount="indefinite"/></path>
+<path class="pf" d="M100 190 L190 206 L300 196 L400 186" stroke-dasharray="14 342" stroke-dashoffset="14"><animate attributeName="stroke-dashoffset" values="14;-342" dur="5.5s" begin="0.7s" repeatCount="indefinite"/></path>
+<path class="pf" d="M120 134 H150" stroke-dasharray="14 70" stroke-dashoffset="14"><animate attributeName="stroke-dashoffset" values="14;-70" dur="2.6s" begin="1.4s" repeatCount="indefinite"/></path>
+<path class="pf" d="M226 134 H256" stroke-dasharray="14 70" stroke-dashoffset="14"><animate attributeName="stroke-dashoffset" values="14;-70" dur="2.6s" begin="2.1s" repeatCount="indefinite"/></path>
+<path class="pf" d="M332 134 H362" stroke-dasharray="14 70" stroke-dashoffset="14"><animate attributeName="stroke-dashoffset" values="14;-70" dur="2.6s" begin="2.8s" repeatCount="indefinite"/></path>
+</svg>

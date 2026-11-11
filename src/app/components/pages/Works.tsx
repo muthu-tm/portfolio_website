@@ -1,5 +1,10 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, ArrowRight } from 'lucide-react';
+import PageHeader from '../site/PageHeader';
+import SiteFooter from '../site/SiteFooter';
+import TraceArt from '../site/TraceArt';
+import { usePageMeta } from '../../seo/usePageMeta';
 
 interface Project {
   name: string;
@@ -8,6 +13,8 @@ interface Project {
   link?: string;
   aiNative?: boolean;
   hidden?: boolean;
+  img?: string;
+  alt?: string;
   pillars: { title: string; description: string }[];
   skills: string;
 }
@@ -15,6 +22,8 @@ interface Project {
 const projects: Project[] = [
   {
     name: 'Governed Asset Agents',
+    img: '/images/governed-asset-agents-predictive-maintenance.svg',
+    alt: 'Governed asset agent illustration: a vibration forecast flags failure risk on a pump and the agent drafts a work order that passes policy checks and awaits human approval.',
     tagline: 'Enterprise Asset Management',
     category: 'AI-Native',
     aiNative: true,
@@ -27,6 +36,8 @@ const projects: Project[] = [
   },
   {
     name: 'Universal AI Copilot',
+    img: '/images/universal-ai-copilot-mcp-rag.svg',
+    alt: 'Universal AI copilot illustration: a RAG chat assistant calls CRM, ERP, ticketing and knowledge-base tools through a secured Model Context Protocol (MCP) gateway.',
     tagline: 'MCP-Connected Assistant',
     category: 'AI-Native',
     aiNative: true,
@@ -39,6 +50,8 @@ const projects: Project[] = [
   },
   {
     name: 'AIDLC · BRD Multi-Agent Engine',
+    img: '/images/aidlc-brd-multi-agent-langgraph-engine.svg',
+    alt: 'AIDLC BRD engine illustration: LangGraph analyst, architect and reviewer agents turn a business requirements document into epics, architecture and a test plan.',
     tagline: 'AI Development Life Cycle',
     category: 'AI-Native',
     aiNative: true,
@@ -64,6 +77,8 @@ const projects: Project[] = [
   },
   {
     name: 'IT Support Copilot',
+    img: '/images/it-support-copilot-hybrid-rag-azure.svg',
+    alt: 'IT Support Copilot illustration: hybrid pgvector and BM25 search fused with RRF produces a cited, grounded answer with a groundedness score and auto-escalation to IT.',
     tagline: 'Governed · Multi-Tenant',
     category: 'AI-Native',
     aiNative: true,
@@ -122,7 +137,10 @@ const projects: Project[] = [
   },
 ];
 
-const categories = ['AI-Native', 'Web3 & Ventures'];
+const categories = [
+  { name: 'AI-Native', title: <>AI-native <span className="em">products</span></> },
+  { name: 'Web3 & Ventures', title: <>Web3 &amp; <span className="em">ventures</span></> },
+];
 
 const fade = {
   initial: { opacity: 0, y: 18 },
@@ -131,57 +149,85 @@ const fade = {
   transition: { duration: 0.5 },
 };
 
+const pad = (n: number) => String(n).padStart(2, '0');
+
 export default function Works() {
+  usePageMeta('/works');
+
   return (
     <div className="pt-[68px]">
-      <header className="wrap pt-16 md:pt-20 pb-6">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <p className="eyebrow mb-4">Portfolio</p>
-          <h1 className="text-[clamp(36px,5vw,56px)] mb-5">Selected works</h1>
-          <p className="text-lg md:text-xl t-soft max-w-[52ch]">
-            AI-native products and entrepreneurial ventures spanning agentic systems, Web3, and mobile apps.
-          </p>
-        </motion.div>
-      </header>
+      <PageHeader
+        crumb="Works"
+        eyebrow="Portfolio"
+        title={<>Selected works: <span className="em">AI agents</span>, copilots &amp; Web3</>}
+        lead="AI-native products and entrepreneurial ventures spanning agentic systems, RAG copilots, Web3 protocols, and mobile apps."
+      />
 
-      <main className="wrap pb-16 md:pb-24">
-        {categories.map((category) => {
-          const items = projects.filter((p) => p.category === category && !p.hidden);
+      <main>
+        {categories.map((cat, ci) => {
+          const items = projects.filter((p) => p.category === cat.name && !p.hidden);
+          const hid = `works-${ci}`;
           return (
-            <section key={category} className="pt-10 md:pt-14" aria-label={category}>
-              <motion.h2 {...fade} className="text-xl md:text-2xl t-accent mb-8 flex items-center gap-3">
-                <span className="h-px w-8 bg-[var(--accent)] inline-block" />
-                {category}
-              </motion.h2>
+            <section key={cat.name} className="wrap py-16 md:py-20 divider-line" aria-labelledby={hid}>
+              <motion.div {...fade} className="mb-10">
+                <p className="kicker mb-5">{pad(ci + 1)} · {cat.name}</p>
+                <h2 id={hid} className="sec-h">{cat.title}</h2>
+              </motion.div>
+
+              {cat.name === 'Web3 & Ventures' && (
+                <motion.figure {...fade} className="mb-8">
+                  <div className="figure-ent">
+                    <img
+                      src="/images/web3-ventures-defi-nft-mobile-apps.svg"
+                      alt="Web3 and venture products: the Crypit crypto super app dashboard, the 3suite EVM token multi-sender, a decentralized NFT marketplace, and the Unique Foods quick-commerce mobile app."
+                      width={1200}
+                      height={300}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <figcaption className="figcap">
+                    <span>Illustration — Web3 ventures: DeFi super app, token tooling, NFT marketplace, mobile commerce</span>
+                    <span className="md:hidden t-accent">Swipe to explore →</span>
+                  </figcaption>
+                </motion.figure>
+              )}
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-                {items.map((project) => (
-                  <motion.article {...fade} key={project.name} className="card-soft rounded-2xl p-6 md:p-8">
-                    <div className="flex justify-between items-start gap-3 mb-4">
-                      <div>
-                        <div className="t-mono text-[11px] t-accent-2 tracking-[0.08em] uppercase mb-1.5">{project.category}</div>
-                        <h3 className="text-xl md:text-2xl t-strong mb-1">{project.name}</h3>
-                        <p className="text-sm t-accent">{project.tagline}</p>
-                      </div>
-                      {project.link && (
-                        <a href={project.link} target="_blank" rel="noopener noreferrer" className="t-accent-2 hover:opacity-70 transition-opacity" aria-label={`Visit ${project.name}`}>
-                          <ExternalLink className="w-5 h-5" />
-                        </a>
-                      )}
-                    </div>
-
-                    <div className="space-y-3 mb-5">
-                      {project.pillars.map((p) => (
-                        <div key={p.title}>
-                          <h4 className="text-sm t-accent-2 mb-0.5 t-serif">{p.title}</h4>
-                          <p className="text-sm t-soft">{p.description}</p>
+                {items.map((project, i) => (
+                  <motion.article {...fade} key={project.name} className="card-ent flex flex-col">
+                    {project.img && (
+                      <img src={project.img} alt={project.alt} width={720} height={300} loading="lazy" decoding="async" className="card-media" />
+                    )}
+                    <div className="p-5 sm:p-6 md:p-8 flex flex-col flex-1">
+                      <div className="flex justify-between items-center gap-3 mb-5 t-mono text-[11px] tracking-[0.12em] uppercase">
+                        <span className="t-muted">{pad(i + 1)} / {pad(items.length)}</span>
+                        <div className="flex items-center gap-3">
+                          <span className="badge">{project.category}</span>
+                          {project.link && (
+                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="t-accent-2 hover:opacity-70 transition-opacity" aria-label={`Visit ${project.name}`}>
+                              <ExternalLink className="w-[18px] h-[18px]" />
+                            </a>
+                          )}
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                      <h3 className="text-[24px] t-strong mb-1">{project.name}</h3>
+                      <p className="text-sm t-accent mb-5">{project.tagline}</p>
 
-                    <div className="pt-4 divider-line">
-                      <p className="t-mono text-[11px] t-muted mb-2.5 uppercase tracking-[0.1em]">Tech Stack</p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.skills.split(', ').map((s) => <span key={s} className="tag">{s}</span>)}
+                      <div className="space-y-3.5 mb-6">
+                        {project.pillars.map((p) => (
+                          <div key={p.title}>
+                            <h4 className="text-[15px] t-strong font-semibold font-[family-name:var(--sans)] mb-0.5">{p.title}</h4>
+                            <p className="text-sm t-soft">{p.description}</p>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="pt-4 divider-line mt-auto">
+                        <p className="t-mono text-[11px] t-muted mb-2.5 uppercase tracking-[0.12em]">Tech stack</p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.skills.split(', ').map((sk) => <span key={sk} className="tag">{sk}</span>)}
+                        </div>
                       </div>
                     </div>
                   </motion.article>
@@ -191,23 +237,29 @@ export default function Works() {
           );
         })}
 
-        <motion.div {...fade} className="mt-14 surface rounded-2xl p-8 md:p-10">
-          <h3 className="text-xl md:text-2xl t-accent mb-3">Entrepreneur mindset</h3>
-          <p className="t-soft text-sm md:text-base max-w-[70ch]">
-            Beyond technical depth, I bring an entrepreneurial mindset to every project — identifying
-            market opportunities, architecting scalable solutions, and driving products from concept to
-            market. Whether building AI-native platforms, Web3 infrastructure, or mobile apps, I combine
-            deep technical knowledge with business acumen to ship impactful solutions.
-          </p>
-        </motion.div>
+        <section className="wrap pb-16 md:pb-24">
+          <motion.div {...fade} className="panel panel-center">
+            <TraceArt className="panel-trace" />
+            <TraceArt className="panel-trace panel-trace-left" />
+            <div className="panel-body">
+              <p className="kicker mb-4">Entrepreneur mindset</p>
+              <h2 className="text-[clamp(28px,4vw,44px)] mb-4">From concept to market, not just to code.</h2>
+              <p className="t-soft max-w-[60ch] mx-auto mb-8">
+                Beyond technical depth, I bring an entrepreneurial mindset to every project — identifying
+                market opportunities, architecting scalable solutions, and driving products from concept to
+                market. Whether building AI-native platforms, Web3 infrastructure, or mobile apps, I combine
+                deep technical knowledge with business acumen to ship impactful solutions.
+              </p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link to="/contact" className="btn btn-primary">Start a project <ArrowRight className="w-4 h-4" /></Link>
+              <Link to="/experience" className="btn btn-ghost">View experience</Link>
+            </div>
+            </div>
+          </motion.div>
+        </section>
       </main>
 
-      <footer className="wrap py-10 md:py-12 divider-line">
-        <div className="flex justify-between items-center flex-wrap gap-4 text-[13px] t-muted">
-          <span>© 2026 Muthu Thavamani</span>
-          <span className="t-mono">AI-Native Engineer · Technical Architect</span>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
